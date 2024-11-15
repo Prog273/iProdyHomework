@@ -39,11 +39,7 @@ public class HomeWorkApp {
 
     public static boolean isSumBetween10And20(int firstNumber, int secondNumber) {
         int sum = firstNumber + secondNumber;
-        if (sum >= 10 && sum <= 20) {
-            return true;
-        } else {
-            return false;
-        }
+        return sum >= 10 && sum <= 20;
     }
 
     public static void checkNumber(int number) {
@@ -52,17 +48,13 @@ public class HomeWorkApp {
     }
 
     public static boolean isNumberNegative(int number) {
-        boolean answer = number < 0 ? true : false;
-        return answer;
+        return number < 0;
     }
 
     public static void printStrings(String string, int number) {
-        if (number <= 0) {
-            System.out.println("Ошибка: число строк должно быть положительным");
-        } else {
-            for (int i = 0; i < number; i++) {
-                System.out.println(string);
-            }
+        while (number > 0) {
+            System.out.println(string);
+            number--;
         }
     }
 
