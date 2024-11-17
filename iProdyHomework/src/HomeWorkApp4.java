@@ -39,7 +39,7 @@ public class HomeWorkApp4 {
         }
         System.out.println(Arrays.deepToString(matrix));
 
-        //заполняем главную и дополнительную диагональ и выводим в консоль
+        //дополнительную диагональ и выводим в консоль
         int count = 0;
         int i = matrix.length - 1;
         int j = 0;
