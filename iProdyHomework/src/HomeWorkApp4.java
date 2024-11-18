@@ -45,7 +45,7 @@ public class HomeWorkApp4 {
     public static void changeMatrix(int[][] matrix) {
         //заполняем главную и побочные диагонали и выводим в консоль
         for (int i = 0; i < matrix.length; i++) {
-            System.out.print("Row #" + (i + 1) + " ");
+            System.out.print("Row #" + (i + 1) + " | ");
             for (int j = 0; j < matrix[i].length; j++) {
                 if (i == j || j == matrix[i].length - 1 - i) {
                     matrix[i][j] = 1;
