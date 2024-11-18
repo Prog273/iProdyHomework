@@ -2,15 +2,24 @@ import java.util.Arrays;
 
 public class HomeWorkApp4 {
     public static void main(String[] args) {
+        int[][] matrix = {
+                {0, 0, 0, 0, 0},
+                {0, 0, 0, 0, 0},
+                {0, 0, 0, 0, 0},
+                {0, 0, 0, 0, 0},
+                {0, 0, 0, 0, 0}
+        };
+        changeMatrix(matrix);
     }
 
     public static void switchZerosAndOnes(int[] arr) {
         for (int i = 0; i < arr.length; i++) {
-            if (arr[i] == 0) {
-                arr[i] = 1;
-            } else {
-                arr[i] = 0;
-            }
+//            if (arr[i] == 0) {
+//                arr[i] = 1;
+//            } else {
+//                arr[i] = 0;
+//            }
+            arr[i] = arr[i] == 0 ? 1 : 0;
         }
         System.out.println(Arrays.toString(arr));
     }
@@ -25,31 +34,38 @@ public class HomeWorkApp4 {
 
     public static int[] changeElements(int[] arr) {
         for (int i = 0; i < arr.length; i++) {
-            if (arr[i] < 6) {
-                arr[i] *= 2;
-            }
+//            if (arr[i] < 6) {
+//                arr[i] *= 2;
+//            }
+            arr[i] = arr[i] < 6 ? arr[i] * 2 : arr[i];
         }
         return arr;
     }
 
     public static void changeMatrix(int[][] matrix) {
-        //заполняем главную диагональ и выводим в консоль
+        //заполняем главную и побочные диагонали и выводим в консоль
         for (int i = 0; i < matrix.length; i++) {
-            matrix[i][i] = 1;
+            System.out.print("Row #" + (i + 1) + " ");
+            for (int j = 0; j < matrix[i].length; j++) {
+                if (i == j || j == matrix[i].length - 1 - i) {
+                    matrix[i][j] = 1;
+                }
+                System.out.print(matrix[i][j] + " ");
+            }
+            System.out.println();
         }
-        System.out.println(Arrays.deepToString(matrix));
 
         //дополнительную диагональ и выводим в консоль
-        int count = 0;
-        int i = matrix.length - 1;
-        int j = 0;
-        while (count < matrix.length) {
-            matrix[i][j] = 1;
-            count++;
-            i--;
-            j++;
-        }
-        System.out.println(Arrays.deepToString(matrix));
+//        int count = 0;
+//        int i = matrix.length - 1;
+//        int j = 0;
+//        while (count < matrix.length) {
+//            matrix[i][j] = 1;
+//            count++;
+//            i--;
+//            j++;
+//        }
+//        System.out.println(Arrays.deepToString(matrix));
     }
 
     public static int[] fillArray(int len, int initValue) {
