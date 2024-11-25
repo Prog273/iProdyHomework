@@ -7,7 +7,7 @@ public class SingleLinked_List {
         return new int[size];
     }
 
-    public static void addElement(int[] arr, int newElement) {
+    public static int[] addElement(int[] arr, int newElement) {
         //создаём расширенную копию массива
         var enhancedArr = new int[arr.length + 1];
         for (int i = 0; i < arr.length; i++) {
@@ -16,6 +16,7 @@ public class SingleLinked_List {
         enhancedArr[enhancedArr.length - 1] = newElement;
         //присваиваем переменной arr ссылку на расширенный массив
         arr = enhancedArr;
+        return enhancedArr;
     }
 
     public static int getElementByIndex(int[] arr, int index) {
