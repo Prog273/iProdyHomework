@@ -4,7 +4,7 @@ public class DoubleQueue {
     public static void main(String[] args) {
         int[] doubleQueue = initiateDoubleQueue(8);
         doubleQueue = addHeadElement(doubleQueue, 4);
-
+        System.out.println(Arrays.toString(doubleQueue));
     }
 
     public static int[] initiateDoubleQueue(int size) {
