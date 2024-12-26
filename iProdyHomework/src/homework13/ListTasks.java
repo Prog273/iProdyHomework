@@ -62,16 +62,15 @@ public class ListTasks {
             if (uniqueWords.contains(word)) continue;
             uniqueWords.add(word);
         }
-        //считаем количество слов, вносим списки в список и выводим в консоль
-        List<List<String>> occurancies = new ArrayList<>();
+        //считаем количество слов, вносим в список и выводим в консоль
+        List<WordCount> occurancies = new ArrayList<>();
         for (var uniqueWord : uniqueWords) {
             int count = 0;
             for (var word : words) {
                 if (word.equals(uniqueWord)) count++;
             }
-            List<String> wordCount = new ArrayList<>();
-            wordCount.add("name: \"" + uniqueWord + "\"");
-            wordCount.add("occurence: " + count);
+            //тут переделал, как ты указывал. Создал новый класс WordCount, объекты которого добавляю в лист
+            WordCount wordCount = new WordCount(uniqueWord, count);
             occurancies.add(wordCount);
         }
         System.out.println(occurancies);
