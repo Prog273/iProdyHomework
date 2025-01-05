@@ -1,30 +1,31 @@
 package homework14;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.UUID;
 
 public class Main {
     public static void main(String[] args) {
-        Map<String, String> attendanceLogger = new HashMap();
-        AttandanceLogger attandanceLog = new AttandanceLogger("09:00", "user1");
-        AttandanceLogger attandanceLog2 = new AttandanceLogger("11:30", "user2");
-        AttandanceLogger attandanceLog3 = new AttandanceLogger("18:30", "user3");
-        AttandanceLogger attandanceLog4 = new AttandanceLogger("13:30", "user1");
-        AttandanceLogger attandanceLog5 = new AttandanceLogger("01:30", "user4");
-        AttandanceLogger attandanceLog6 = new AttandanceLogger("11:00", "user2");
-        AttandanceLogger attandanceLog7 = new AttandanceLogger("11:15", "user5");
+        var logger = new AttandanceLogger();
+        var user1 = UUID.randomUUID();
+        var user2 = UUID.randomUUID();
+        var user3 = UUID.randomUUID();
+        var user4 = UUID.randomUUID();
+        var user5 = UUID.randomUUID();
+        var user6 = UUID.randomUUID();
 
-        attandanceLog.registerAttendance(attendanceLogger);
-        attandanceLog2.registerAttendance(attendanceLogger);
-        attandanceLog3.registerAttendance(attendanceLogger);
-        attandanceLog4.registerAttendance(attendanceLogger);
-        attandanceLog5.registerAttendance(attendanceLogger);
-        attandanceLog6.registerAttendance(attendanceLogger);
-        attandanceLog7.registerAttendance(attendanceLogger);
-        System.out.println(attendanceLogger);
-        System.out.println("________________");
-        System.out.println(AttandanceLogger.countAttendance(attendanceLogger));
-        System.out.println("________________");
-        System.out.println(AttandanceLogger.countPopularHour(attendanceLogger));
+        logger.registerAttendance(user1);
+        logger.registerAttendance(user2);
+        logger.registerAttendance(user2);
+        logger.registerAttendance(user2);
+        logger.registerAttendance(user3);
+        logger.registerAttendance(user4);
+        logger.registerAttendance(user4);
+        logger.registerAttendance(user5);
+        logger.registerAttendance(user6);
+        logger.registerAttendance(user6);
+        logger.registerAttendance(user6);
+        logger.registerAttendance(user6);
+
+        System.out.println(logger.countAttendance());
+        System.out.println(logger.countPopularHour());
     }
 }
