@@ -1,45 +1,45 @@
 package iprody.coffeshot;
 
-import java.util.TreeSet;
+import java.util.*;
 
 public class CoffeeOrderBoard {
-    //Использую TreeSet в качестве поля, т.к. по условию нужна сортировка элементов по номеру заказа
-    //не написал Set<Order> orders = new TreeSet<>(), т.к. в таком случае метод last() из TreeSet становится недоступен
-    private static TreeSet<Order> orders = new TreeSet<>();
+    private static Queue<Order> orders = new PriorityQueue<>();
 
-    public static TreeSet<Order> getOrders() {
+    public static Queue<Order> getOrders() {
         return orders;
     }
 
     public static void add(Order order) {
-        int newOrderNumber = orders.isEmpty() ? 1 : orders.last().getOrderNumber() + 1;
+        //В предыдущем решении, где был TreeSet, на подобное ты сказал, что ненадёжно. Переделал для PriorityQueue.
+        // Так надёжно, подскажи, пожалуйста?
+        int newOrderNumber = orders.isEmpty() ? 1 : Collections.max(orders).getOrderNumber() + 1;
         orders.add(new Order(newOrderNumber, order.getName()));
     }
 
-    public static Order deliver() {
+    public static Optional<Order> deliver() {
         if (orders.isEmpty()) {
             System.out.println("Заказов нет!");
-            return null;
+            //В предыдущем решении метод возвращал Order и в этом случае был возврат null. Переделал на Optional.
+            return Optional.empty();
         }
-        Order firstOrder = orders.first();
-        orders.remove(firstOrder);
-        return firstOrder;
+        Order firstOrder = orders.poll();
+        return Optional.of(firstOrder);
     }
 
-    public static Order deliver(int orderNumber) {
+    public static Optional<Order> deliver(int orderNumber) {
         if (orders.isEmpty()) {
             System.out.println("Заказов нет!");
-            return null;
+            return Optional.empty();
         }
         for (var order : orders) {
             if (order.getOrderNumber() == orderNumber) {
                 Order necessaryOrder = order;
                 orders.remove(necessaryOrder);
-                return necessaryOrder;
+                return Optional.of(necessaryOrder);
             }
         }
         System.out.println("Заказа с подходящим номером нет!");
-        return null;
+        return Optional.empty();
     }
 
     public static void draw() {

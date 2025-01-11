@@ -1,5 +1,6 @@
 package iprody.coffeshot;
 
+import java.util.Queue;
 import java.util.TreeSet;
 
 import static iprody.coffeshot.CoffeeOrderBoard.add;
@@ -8,7 +9,7 @@ import static iprody.coffeshot.CoffeeOrderBoard.draw;
 
 public class Main {
     public static void main(String[] args) {
-        TreeSet<Order> orders = CoffeeOrderBoard.getOrders();
+        Queue<Order> orders = CoffeeOrderBoard.getOrders();
 
         Order order1 = new Order(45, "Dima");
         Order order2 = new Order(23, "Fsdfkh");
