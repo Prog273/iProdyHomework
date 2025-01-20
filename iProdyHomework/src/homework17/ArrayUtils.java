@@ -33,7 +33,7 @@ public class ArrayUtils {
      * качестве параметра массив). Результатом выполнения операция является экземпляр List возвращаемый после вызова метода.
      */
     public static <T> List<T> arrayToList(T[] array) {
-        if (array.length == 0) return new ArrayList<T>();
+        if (array.length == 0) return Collections.emptyList();
         List<T> list = new ArrayList<>(Arrays.asList(array));
         return list;
     }
